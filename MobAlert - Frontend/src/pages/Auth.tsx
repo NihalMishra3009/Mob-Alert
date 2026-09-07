@@ -95,6 +95,13 @@ function Auth({ mode }: AuthProps) {
         const adminId = data?.adminId ?? data?.id
         if (adminId) {
           saveAdminSession(adminId, remember)
+          if (remember) {
+            localStorage.setItem('adminName', form.name.trim())
+            localStorage.setItem('adminEmail', form.email.trim())
+          } else {
+            sessionStorage.setItem('adminName', form.name.trim())
+            sessionStorage.setItem('adminEmail', form.email.trim())
+          }
           navigate('/admin/home')
           return
         }
@@ -114,6 +121,13 @@ function Auth({ mode }: AuthProps) {
       }
 
       saveAdminSession(adminId, remember)
+      if (remember) {
+        localStorage.setItem('adminName', 'MobAlert Administrator')
+        localStorage.setItem('adminEmail', form.email.trim())
+      } else {
+        sessionStorage.setItem('adminName', 'MobAlert Administrator')
+        sessionStorage.setItem('adminEmail', form.email.trim())
+      }
       navigate('/admin/home')
     } catch (requestError) {
       const message = axios.isAxiosError(requestError)
@@ -124,6 +138,16 @@ function Auth({ mode }: AuthProps) {
       setLoading(false)
     }
   }
+
+  const fillDemoAdmin = () => {
+    setForm({
+      name: 'Operations Admin',
+      email: 'admin@mobalert.com',
+      password: 'password123',
+    })
+    setError('')
+  }
+
 
   const fieldClass =
     'w-full rounded-xl border border-mid/60 bg-deep/50 px-4 py-3 text-sm text-[#ccd0cf] outline-none backdrop-blur transition placeholder:text-muted focus:border-light/80 focus:bg-deep/70 focus:ring-2 focus:ring-mid/30'
@@ -273,8 +297,20 @@ function Auth({ mode }: AuthProps) {
             >
               {loading ? (isSignUp ? 'Creating account...' : 'Signing in...') : isSignUp ? 'Create Account' : 'Sign In'}
             </button>
+
+            {/* Quick Demo Credentials Helper */}
+            <div className="pt-1">
+              <button
+                type="button"
+                onClick={fillDemoAdmin}
+                className="w-full rounded-lg border border-mid/40 bg-surface/40 py-2 text-xs font-medium text-[#9ba8ab] transition hover:border-mid hover:bg-surface/80 hover:text-[#ccd0cf]"
+              >
+                ✨ Auto-Fill Sample Account (admin@mobalert.com)
+              </button>
+            </div>
           </form>
         </motion.div>
+
 
         {/* Divider */}
         <div className="hidden">
