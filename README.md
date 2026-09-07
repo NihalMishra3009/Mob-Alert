@@ -1279,10 +1279,9 @@ Gemini integration testing covers:
 
 ---
 
-# 📸 Screenshots & Demo
+# 📸 Screenshots & Live UI Gallery
  
-## Web Landing Page & Live Dashboard
-
+### 1. Landing Page & Product Overview
 [![MobAlert Landing Page Preview](docs/mobalert_landing_page.png)](https://geo-watch.pages.dev/)
 *Live Landing Page — Click to visit demo*
 
@@ -1291,13 +1290,28 @@ Gemini integration testing covers:
 
 ---
 
-## Mobile Application
+### 2. Organizer Authentication & 1-Click Sample Access
+[![Organizer Authentication & Sign-in](docs/auth_login.png)](https://geo-watch.pages.dev/signin)
+*Modern Glassmorphic Sign-in with 1-Click Auto-Fill Demo Access*
 
-### Participant Event Discovery & SOS Flow
+---
 
-| Event Discovery | SOS Reporting | Incident Description | Voice Input |
-|:---:|:---:|:---:|:---:|
-| `Events Discovery` | `Live SOS Button` | `Description & Category` | `Multilingual Voice Input` |
+### 3. Live Operations Center & Real-Time Map
+[![Admin Operations Dashboard](docs/admin_operations_dashboard.png)](https://geo-watch.pages.dev/admin/home)
+*Real-Time Operations Center with Live Incident Feed, Hotspots, and AI Assistant*
+
+---
+
+### 4. Event Geofencing & Creation
+[![Create Geofenced Event](docs/create_event_geofence.png)](https://geo-watch.pages.dev/admin/create-event)
+*Geofenced Boundary Configuration with Interactive Map Picker*
+
+---
+
+### 5. Active Events & Operations Settings
+| Live Events Selector | System Settings & Profile |
+|:---:|:---:|
+| [![Active Events Selector](docs/admin_events_list.png)](https://geo-watch.pages.dev/admin/events) | [![System Settings](docs/admin_settings.png)](https://geo-watch.pages.dev/admin/settings) |
 
 
 ---
