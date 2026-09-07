@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  # ====================================================
+  # PostgreSQL Database
+  # ====================================================
+  postgres:
+    image: postgres:16-alpine
+    container_name: mobalert-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-geowatch}
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres} -d ${POSTGRES_DB:-geowatch}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - mobalert-network
+
+  # ====================================================
+  # Spring Boot Backend API & WebSocket Server
+  # ====================================================
+  backend:
+    build:
+      context: ./"MobAlert - Backend"
+      dockerfile: Dockerfile
+    container_name: mobalert-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PORT: 8080
+      DB_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-geowatch}
+      PGUSER: ${POSTGRES_USER:-postgres}
+      PGPASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_API_URL: ${GEMINI_API_URL:-https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-http://localhost:5173,http://localhost:3000,http://localhost,https://geo-watch.pages.dev}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: ${SPRING_JPA_HIBERNATE_DDL_AUTO:-update}
+      SHOW_SQL: ${SHOW_SQL:-false}
+    ports:
+      - "8080:8080"
+    networks:
+      - mobalert-network
+
+  # ====================================================
+  # React Web Dashboard (Nginx)
+  # ====================================================
+  frontend:
+    build:
+      context: ./"MobAlert - Frontend"
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:8080/api}
+        VITE_WS_BASE_URL: ${VITE_WS_BASE_URL:-http://localhost:8080/ws}
+    container_name: mobalert-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+    networks:
+      - mobalert-network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  mobalert-network:
+    driver: bridge

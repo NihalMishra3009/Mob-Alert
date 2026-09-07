@@ -3,6 +3,7 @@
 > **Real-time crowd safety intelligence powered by geospatial clustering and Gemini AI.**
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-success)](https://geo-watch.pages.dev/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/NihalMishra3009/Mob-Alert)
 [![Backend](https://img.shields.io/badge/Backend-Spring%20Boot-green)](#-tech-stack)
 [![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20TypeScript-blue)](#-tech-stack)
 [![Mobile](https://img.shields.io/badge/Mobile-Flutter-02569B)](#-tech-stack)
@@ -10,6 +11,9 @@
 [![Realtime](https://img.shields.io/badge/Realtime-WebSocket%20%2B%20STOMP-orange)](#-websocket-api)
 [![AI](https://img.shields.io/badge/AI-Gemini-purple)](#-gemini-ai-integration)
 [![Algorithm](https://img.shields.io/badge/Algorithm-DBSCAN-red)](#-dbscan-clustering)
+
+[![MobAlert Web Platform](docs/mobalert_landing_page.png)](https://geo-watch.pages.dev/)
+*Click image above to visit the live platform.*
 
 MobAlert is a real-time crowd safety monitoring platform for concerts, festivals, college events, sports events, public gatherings, and other high-density environments.
 
@@ -678,14 +682,15 @@ The selected language controls speech recognition and the preferred response lan
 
 ---
 
-#  Project Structure
-
+# 📂 Project Structure
+ 
 ```text
-Geo-Watch/
+Mob-Alert/
 │
-├── GeoWatch - Application/
+├── MobAlert - Application/              # Flutter Mobile Application
 │   ├── lib/
 │   │   ├── models/
+│   │   ├── core/
 │   │   ├── repositories/
 │   │   ├── screens/
 │   │   ├── services/
@@ -693,51 +698,38 @@ Geo-Watch/
 │   │   └── main.dart
 │   ├── android/
 │   ├── ios/
-│   ├── web/
-│   ├── windows/
-│   ├── linux/
-│   ├── macos/
-│   ├── pubspec.yaml
-│   └── ...
+│   └── pubspec.yaml
 │
-├── GeoWatch - Backend/
+├── MobAlert - Backend/                  # Spring Boot Java 21 Backend API & STOMP Broker
 │   ├── src/
 │   │   ├── main/
-│   │   │   ├── java/
-│   │   │   │   └── com/safety/womensafety/
-│   │   │   │       ├── controller/
-│   │   │   │       ├── dto/
-│   │   │   │       ├── model/
-│   │   │   │       ├── repository/
-│   │   │   │       ├── service/
-│   │   │   │       └── ...
+│   │   │   ├── java/com/safety/womensafety/
+│   │   │   │   ├── controller/
+│   │   │   │   ├── service/
+│   │   │   │   ├── model/
+│   │   │   │   └── config/
 │   │   │   └── resources/
-│   │   │       ├── application.properties
-│   │   │       └── application-local.properties
 │   │   └── test/
-│   ├── pom.xml
-│   └── mvnw
+│   ├── Dockerfile
+│   └── pom.xml
 │
-├── GeoWatch - Frontend new/
+├── MobAlert - Frontend/                 # React 19 + TypeScript + Vite Dashboard
 │   ├── src/
 │   │   ├── components/
 │   │   ├── pages/
 │   │   ├── services/
-│   │   ├── assets/
-│   │   └── ...
+│   │   └── assets/
 │   ├── public/
-│   ├── package.json
-│   └── ...
+│   ├── nginx.conf
+│   ├── Dockerfile
+│   └── package.json
 │
-├── GeoWatch - Frontend/
-│   └── Legacy frontend
-│
-├── benchmark/
-├── docs/
-├── ws_test/
-├── GeoWatch_Scalability_Performance_Validation_Report.md
+├── docker-compose.yml                   # 1-Click Multi-Container Deployment
+├── DEPLOYMENT.md                        # Full Cloud & VPS Deployment Guide
+├── benchmark/                           # k6 Load Testing Scripts
 └── README.md
 ```
+
 
 > `GeoWatch - Frontend new` is the current frontend under active development. The legacy frontend is retained temporarily during migration.
 
@@ -1287,57 +1279,26 @@ Gemini integration testing covers:
 
 ---
 
-#  Screenshots & Demo
+# 📸 Screenshots & Demo
+ 
+## Web Landing Page & Live Dashboard
 
-## Mobile
+[![MobAlert Landing Page Preview](docs/mobalert_landing_page.png)](https://geo-watch.pages.dev/)
+*Live Landing Page — Click to visit demo*
 
-### Event Discovery
-
-```markdown
-![Mobile Event Discovery](docs/assets/mobile-events.png)
-```
-
-### SOS Reporting
-
-```markdown
-![Mobile SOS](docs/assets/mobile-sos.png)
-```
-
-### Incident Description
-
-```markdown
-![Incident Description](docs/assets/mobile-description.png)
-```
-
-### Voice Input
-
-```markdown
-![Voice Input](docs/assets/mobile-voice.png)
-```
+[![MobAlert Overview Section](docs/mobalert_overview_section.png)](https://geo-watch.pages.dev/)
+*Problem & Solution Architecture Overview*
 
 ---
 
-## Admin Dashboard
+## Mobile Application
 
-### Live Monitoring
+### Participant Event Discovery & SOS Flow
 
-```markdown
-![Live Dashboard](docs/assets/dashboard.png)
-```
+| Event Discovery | SOS Reporting | Incident Description | Voice Input |
+|:---:|:---:|:---:|:---:|
+| `Events Discovery` | `Live SOS Button` | `Description & Category` | `Multilingual Voice Input` |
 
-### Risk Zones
-
-```markdown
-![Risk Zones](docs/assets/risk-zones.png)
-```
-
-### Gemini Event Intelligence
-
-```markdown
-![Gemini Event Intelligence](docs/assets/gemini-chatbot.png)
-```
-
-> Replace placeholder image paths with the final project screenshots.
 
 ---
 
