@@ -82,7 +82,16 @@ docker compose up -d --build
 
 ---
 
-### 3. React Frontend (Cloudflare Pages / Vercel / Netlify)
+### 3. React Frontend (Vercel / Cloudflare Pages / Netlify)
+
+#### Deploying on Vercel:
+1. Import repository on [Vercel](https://vercel.com).
+2. Set **Root Directory**: `MobAlert - Frontend`.
+3. Set **Framework Preset**: `Vite`.
+4. Configure Environment Variables:
+   - `VITE_API_BASE_URL`: `https://your-backend.onrender.com/api`
+   - `VITE_WS_BASE_URL`: `https://your-backend.onrender.com/ws`
+5. Live URL: `https://mobalert.vercel.app`
 
 #### Deploying on Cloudflare Pages:
 1. Connect your repository to **Cloudflare Pages**.
@@ -93,7 +102,7 @@ docker compose up -d --build
 6. Add **Environment Variables**:
    - `VITE_API_BASE_URL`: `https://your-backend.onrender.com/api`
    - `VITE_WS_BASE_URL`: `https://your-backend.onrender.com/ws`
-7. Click **Save and Deploy**. (The included `public/_redirects` file guarantees direct URL refreshes work seamlessly).
+
 
 ---
 
