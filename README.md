@@ -2,18 +2,14 @@
 
 > **Real-time crowd safety intelligence powered by geospatial clustering and Gemini AI.**
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-success)](https://geo-watch.pages.dev/)
-[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/NihalMishra3009/Mob-Alert)
-[![Backend](https://img.shields.io/badge/Backend-Spring%20Boot-green)](#-tech-stack)
-[![Frontend](https://img.shields.io/badge/Frontend-React%20%2B%20TypeScript-blue)](#-tech-stack)
-[![Mobile](https://img.shields.io/badge/Mobile-Flutter-02569B)](#-tech-stack)
-[![Database](https://img.shields.io/badge/Database-PostgreSQL-336791)](#-tech-stack)
-[![Realtime](https://img.shields.io/badge/Realtime-WebSocket%20%2B%20STOMP-orange)](#-websocket-api)
-[![AI](https://img.shields.io/badge/AI-Gemini-purple)](#-gemini-ai-integration)
-[![Algorithm](https://img.shields.io/badge/Algorithm-DBSCAN-red)](#-dbscan-clustering)
+[![Live Web Dashboard](https://img.shields.io/badge/Live%20Website-mobalert.vercel.app-success?style=for-the-badge&logo=vercel)](https://mobalert.vercel.app/)
+[![App Release](https://img.shields.io/badge/Mobile%20App-v1.0.0-blue?style=for-the-badge&logo=android)](#-mobile-app-v1)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/NihalMishra3009/Mob-Alert)
 
-[![MobAlert Web Platform](docs/mobalert_landing_page.png)](https://geo-watch.pages.dev/)
-*Click image above to visit the live platform.*
+[![MobAlert Web Platform](docs/mobalert_landing_page.png)](https://mobalert.vercel.app/)
+*👉 **[Click here or the image above to open the live web platform](https://mobalert.vercel.app/)***
+
+---
 
 MobAlert is a real-time crowd safety monitoring platform for concerts, festivals, college events, sports events, public gatherings, and other high-density environments.
 
@@ -1279,39 +1275,57 @@ Gemini integration testing covers:
 
 ---
 
+# 📱 Mobile App v1
+
+MobAlert Mobile Application (v1.0.0) is built with Flutter for Android and iOS devices, enabling participants to discover active events, trigger 1-touch SOS alarms, and submit speech-to-text / typed emergency reports directly to the backend.
+
+### 📥 Getting App v1:
+- **Repository Location**: [`MobAlert - Application/`](MobAlert%20-%20Application/)
+- **Build Command**:
+  ```bash
+  cd "MobAlert - Application"
+  flutter pub get
+  flutter build apk --release --dart-define=API_BASE_URL=https://mob-alert.onrender.com
+  ```
+- **Output Artifact**: `build/app/outputs/flutter-apk/app-release.apk`
+
+---
+
 # 📸 Screenshots & Live UI Gallery
+*(Click any image below to interact with the live platform on [mobalert.vercel.app](https://mobalert.vercel.app/))*
  
 ### 1. Landing Page & Product Overview
-[![MobAlert Landing Page Preview](docs/mobalert_landing_page.png)](https://geo-watch.pages.dev/)
-*Live Landing Page — Click to visit demo*
+[![MobAlert Landing Page Preview](docs/mobalert_landing_page.png)](https://mobalert.vercel.app/)
+*👉 [Click here or image above to view the Live Landing Page](https://mobalert.vercel.app/)*
 
-[![MobAlert Overview Section](docs/mobalert_overview_section.png)](https://geo-watch.pages.dev/)
-*Problem & Solution Architecture Overview*
+[![MobAlert Overview Section](docs/mobalert_overview_section.png)](https://mobalert.vercel.app/)
+*👉 [Click to view Architecture & Problem Overview](https://mobalert.vercel.app/)*
 
 ---
 
 ### 2. Organizer Authentication & 1-Click Sample Access
-[![Organizer Authentication & Sign-in](docs/auth_login.png)](https://geo-watch.pages.dev/signin)
-*Modern Glassmorphic Sign-in with 1-Click Auto-Fill Demo Access*
+[![Organizer Authentication & Sign-in](docs/auth_login.png)](https://mobalert.vercel.app/signin)
+*👉 [Click to try 1-Click Demo Login (`admin@mobalert.com`)](https://mobalert.vercel.app/signin)*
 
 ---
 
 ### 3. Live Operations Center & Real-Time Map
-[![Admin Operations Dashboard](docs/admin_operations_dashboard.png)](https://geo-watch.pages.dev/admin/home)
-*Real-Time Operations Center with Live Incident Feed, Hotspots, and AI Assistant*
+[![Admin Operations Dashboard](docs/admin_operations_dashboard.png)](https://mobalert.vercel.app/admin/home)
+*👉 [Click to view Real-Time Operations Center](https://mobalert.vercel.app/admin/home)*
 
 ---
 
 ### 4. Event Geofencing & Creation
-[![Create Geofenced Event](docs/create_event_geofence.png)](https://geo-watch.pages.dev/admin/create-event)
-*Geofenced Boundary Configuration with Interactive Map Picker*
+[![Create Geofenced Event](docs/create_event_geofence.png)](https://mobalert.vercel.app/admin/create-event)
+*👉 [Click to test Interactive Event & Geofence Creator](https://mobalert.vercel.app/admin/create-event)*
 
 ---
 
 ### 5. Active Events & Operations Settings
 | Live Events Selector | System Settings & Profile |
 |:---:|:---:|
-| [![Active Events Selector](docs/admin_events_list.png)](https://geo-watch.pages.dev/admin/events) | [![System Settings](docs/admin_settings.png)](https://geo-watch.pages.dev/admin/settings) |
+| [![Active Events Selector](docs/admin_events_list.png)](https://mobalert.vercel.app/admin/events) | [![System Settings](docs/admin_settings.png)](https://mobalert.vercel.app/admin/settings) |
+| *[Open Events List](https://mobalert.vercel.app/admin/events)* | *[Open Settings](https://mobalert.vercel.app/admin/settings)* |
 
 
 ---
